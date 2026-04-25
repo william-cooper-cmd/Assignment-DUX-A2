@@ -1,6 +1,3 @@
-/* data.js — All listings as an inline JS variable.
-   No fetch() needed, works on file:// and GitHub Pages. */
-
 var CRAIGLIST_LISTINGS = [
     {
         "id": 1,
