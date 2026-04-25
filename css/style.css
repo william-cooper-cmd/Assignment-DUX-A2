@@ -36,6 +36,16 @@
     --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
+[data-theme="dark"] .btn-secondary {
+    background: #3a3a3a;
+    color: #cc66cc;
+    border-color: #555;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background: #4a4a4a;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -236,7 +246,7 @@ aside {
 .sidebar-section h5 {
     font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     color: var(--color-primary);
     margin-bottom: 0.5rem;
     font-weight: bold;
@@ -521,7 +531,7 @@ main.content {
     font-size: 13px;
     color: var(--color-primary);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     margin-bottom: 0.8rem;
 }
 
@@ -571,9 +581,7 @@ main.content {
     width: 250px;
     position: relative;
     overflow: hidden;
-    background: url('https://media.istockphoto.com/id/1324356458/vector/picture-icon-photo-frame-symbol-landscape-sign-photograph-gallery-logo-web-interface-and.jpg?s=612x612&w=0&k=20&c=ZmXO4mSgNDPzDRX-F8OKCfmMqqHpqMV6jiNi00Ye7rE=');
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('https://media.istockphoto.com/id/1324356458/vector/picture-icon-photo-frame-symbol-landscape-sign-photograph-gallery-logo-web-interface-and.jpg?s=612x612&w=0&k=20&c=ZmXO4mSgNDPzDRX-F8OKCfmMqqHpqMV6jiNi00Ye7rE=') no-repeat center;
     background-size: cover;
     box-shadow: 0 8px 6px -6px black;
 }
