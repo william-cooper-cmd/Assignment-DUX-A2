@@ -48,3 +48,22 @@ Craigslist London is a community-powered classified advertisements platform for 
 | L3 | Lana                       | As a user with visual sensitivity, I want the website to offer a dark mode or soft contrast option,, so that I can browse without experiencing discomfort.                                                                 |
 
 ---
+
+### 1.3 Revised Wireframes and Justification
+
+The five wireframes from Assignment 1 were refined based on feedback.
+
+---
+
+#### Page 1 - Homepage (`index.html`)
+
+**Changes from wireframe:**
+
+- **Added a dark mode toggle button** in the header. This directly addresses user story L3 and provides a soft-contrast browsing option. The prefrences is store in `LocalStorage` so it persists across sessions, addressing D1
+- **Contact seller button with modal triggers** Opens a keyboard-accessible contact modal, addressing D2 and S3
+- **Added an interactive map section** Displaying listing locations as clickable markers. This allows filtering by location addressing L1
+- **Added a skip to main content link** at the top of the page. invisible until focused this allows keyboard and screen readers user to bypass the header and nav on every page load (WCAG 2.4.1)
+- **Converted `<div>` ad containers to `<article>` elements** with descriptive `alt` text on every image, addressing S2 and WCAG 1.1.1
+- **Added a dropdown "for sale" navigation menu** with keyboard support via `focus-within`, giving returning users faster access to subcategories addressing D1
+
+---
