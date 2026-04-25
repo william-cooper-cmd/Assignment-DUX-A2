@@ -132,3 +132,20 @@ The development phase invloved building five HTML pages, a CSS file and four jav
 
 **Data architecture**
 
+Listing data is stored in `js/data.js` as a globally scoped `CRAIGSLIST_LISTING` array. This approach avoids the need for a backend or fetch request. The data file must be laoded before any page-specific script that depends on it. A load order issue that caused the "listings not found" error during devlopment and was revsolved be ensuring `data.js` is always the first script tag on any page that uses listing data.
+
+**JavaScript structure**
+
+Three page-specific scripts handle the core interactivity:
+
+- `main.js` - shared across all pages. Handles dark mode toggling with `localStorage` persistence, modal open/close with focus trapping and keyboard support, and toast notifications
+- `search.js` - Powers the search and filter page. Reads URL query parameters on load, filters and sorts the `CRAIGSLIST_LISTINGS` array client-side renders results as ad cards with keyboard highligthing and initialises a Leaflet map showing all result locations.
+- `open-ad.js` - Powers individal listiing pages. Reads the `id` paramter from the URL, find the matching listing in `CRAIGSLIST_LISTING` and dynamically changes the full listing including image, detials table, seller info, an interactive mpa, a private message thread with `localStorage` persistence and a similiar listing section
+
+**Key challenges resolved during development**
+
+- **Script load order** - `data.js` being loaded after page-specific scripts caused `CRAIGSLIST_LISTINGS` to be undefined at runtime. Fixed by placing `data.js` first in the script block
+- **Leaflet SRI integrity failure** - The `integrity` attribute on the LeafletCDN `<script>` and `<link>` tags casued the browser to block the resource due to a hash mismatch. Resovled by removing the `intergrity` attribute and retaining only `crossorigin=""`.
+- **Contact form realoding the page** - Submitting the contacyt seller for triggered a page reload, which cleared the URL `id` parameter and caused the `no lsiting ID` error. Fixed by adding `e.preventDefault()` to the contact for submit handler
+
+---
