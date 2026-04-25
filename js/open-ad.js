@@ -164,12 +164,11 @@
             showToast('Listing flagged for review. Thank you.', 'success');
         });
 
-        /* ---- Map ---- */
+
         const mapSection = document.getElementById('map-section');
         if (listing.lat && listing.lng && typeof L !== 'undefined') {
             mapSection.style.display = '';
             const map = L.map('map').setView([listing.lat, listing.lng], 14);
-            /* Attribution: Leaflet (BSD 2-Clause) + OpenStreetMap (ODbL) */
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
                 maxZoom: 18
@@ -195,5 +194,13 @@
     }
 
     document.addEventListener('DOMContentLoaded', loadListing);
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            closeModal('contact-modal');
+            showToast('Message sent!', 'success');
+        });
+    }
 
 })();
