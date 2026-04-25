@@ -177,6 +177,7 @@
                 .addTo(map)
                 .bindPopup('<strong>' + esc(listing.title) + '</strong><br>' + esc(listing.price) + '<br><small>&#128205; ' + esc(listing.location) + '</small>')
                 .openPopup();
+                setTimeout(function () { map.invalidateSize(); }, 100);
         }
 
         document.getElementById('messages-section').style.display = '';

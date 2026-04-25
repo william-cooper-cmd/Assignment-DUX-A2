@@ -196,6 +196,7 @@
 
         const group = L.featureGroup(markers);
         leafletMap.fitBounds(group.getBounds().pad(0.15));
+        setTimeout(function () { leafletMap.invalidateSize(); }, 100);
     }
 
 

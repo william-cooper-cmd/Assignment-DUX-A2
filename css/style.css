@@ -942,9 +942,6 @@ footer {
     }
 
 }
-#map {
-    height: 220px;
-}
 
 @media (max-width: 480px) {
     header h1 {
