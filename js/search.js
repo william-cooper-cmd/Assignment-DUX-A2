@@ -154,7 +154,7 @@
                 ' found \u00B7 sorted by: ' + (sortLabel[sort] || sort);
         }
 
-        document.title = (q ? '"' + q + '" \u2014 ' : 'All listings \u2014 ') + 'craiglist London';
+        document.title = (q ? '"' + q + '" \u2014 ' : 'All listings \u2014 ') + 'craigslist London';
     }
 
 
@@ -218,14 +218,14 @@
             grid.innerHTML = '<p style="color:var(--color-text-muted);font-size:12px;grid-column:1/-1;">Loading listings&#x2026;</p>';
         }
 
-        if (typeof CRAIGLIST_LISTINGS === 'undefined') {
+        if (typeof CRAIGSLIST_LISTINGS === 'undefined') {
             if (grid) {
                 grid.innerHTML = '<p style="color:#c0392b;font-size:12px;grid-column:1/-1;">&#9888; Listings data not found. Make sure data.js is loaded.</p>';
             }
             return;
         }
 
-        const results = filterAndSort(CRAIGLIST_LISTINGS, params);
+        const results = filterAndSort(CRAIGSLIST_LISTINGS, params);
 
         updateHeading(params, results.length);
 

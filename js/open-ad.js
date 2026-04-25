@@ -26,7 +26,7 @@
             '<a href="../index.html">Return to homepage</a> or ' +
             '<a href="search.html">browse all listings</a>.';
         section.appendChild(el);
-        document.title = 'Listing not found \u2014 craiglist London';
+        document.title = 'Listing not found \u2014 craigslist London';
     }
 
 
@@ -39,12 +39,12 @@
             return;
         }
 
-        if (typeof CRAIGLIST_LISTINGS === 'undefined') {
+        if (typeof CRAIGSLIST_LISTINGS === 'undefined') {
             showError('Listings data not found. Make sure data.js is loaded.');
             return;
         }
 
-        const listing = CRAIGLIST_LISTINGS.find(function (l) {
+        const listing = CRAIGSLIST_LISTINGS.find(function (l) {
             return l.id === id;
         });
         if (!listing) {
@@ -52,7 +52,7 @@
             return;
         }
 
-        document.title = listing.title + ' \u2014 ' + listing.price + ' \u2014 craiglist London';
+        document.title = listing.title + ' \u2014 ' + listing.price + ' \u2014 craigslist London';
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', listing.description.slice(0, 155));
 

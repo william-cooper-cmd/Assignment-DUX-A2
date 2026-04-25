@@ -1,4 +1,4 @@
-var CRAIGLIST_LISTINGS = [
+var CRAIGSLIST_LISTINGS = [
     {
         "id": 1,
         "category": "For Sale \u2014 Electronics",

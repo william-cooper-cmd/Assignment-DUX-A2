@@ -1,6 +1,6 @@
 (function () {
     const btn = document.getElementById('dark-mode-toggle');
-    const stored = localStorage.getItem('craiglist-theme');
+    const stored = localStorage.getItem('craigslist-theme');
 
     if (stored === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
@@ -12,11 +12,11 @@
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             if (isDark) {
                 document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('craiglist-theme', 'light');
+                localStorage.setItem('craigslist-theme', 'light');
                 btn.textContent = '☾ dark mode';
             } else {
                 document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('craiglist-theme', 'dark');
+                localStorage.setItem('craigslist-theme', 'dark');
                 btn.textContent = '☀ light mode';
             }
         });
