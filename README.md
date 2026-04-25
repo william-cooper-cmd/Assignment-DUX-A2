@@ -149,3 +149,10 @@ Three page-specific scripts handle the core interactivity:
 - **Contact form realoding the page** - Submitting the contacyt seller for triggered a page reload, which cleared the URL `id` parameter and caused the `no lsiting ID` error. Fixed by adding `e.preventDefault()` to the contact for submit handler
 
 ---
+
+### 2.3 Deployment
+
+The site is deployed using Github Pages - https://william-cooper-cmd.github.io/Assignment-DUX-A2/index.html
+
+---
+
