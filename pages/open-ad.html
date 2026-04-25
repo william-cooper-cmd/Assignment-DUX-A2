@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading listing… — craigslist London</title>
+    <meta name="description" content="View this listing on craigslist London.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <style>
+        .skeleton { background: linear-gradient(90deg, var(--color-border-light) 25%, var(--color-border) 50%, var(--color-border-light) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 2px; display: block; }
+        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .skeleton-img  { width: 100%; height: 380px; }
+        .skeleton-text { height: 14px; margin-bottom: 0.5rem; }
+        .skeleton-text.wide  { width: 80%; }
+        .skeleton-text.med   { width: 50%; }
+        .skeleton-text.short { width: 30%; }
+        .error-banner { background: #fff3f3; border: 1px solid #f5c6c6; border-left: 4px solid #c0392b; padding: 1rem; font-size: 13px; color: #333; }
+        .error-banner a { color: var(--color-primary); }
+    </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header role="banner">
+    <div class="header-left">
+        <a href="../index.html" aria-label="craigslist London homepage"><h1>craigslist</h1></a>
+        <h3><span class="weather-widget" aria-live="polite">London UK</span></h3>
+    </div>
+    <div class="header-right">
+        <button id="dark-mode-toggle" aria-label="Toggle dark mode">dark mode</button>
+        <a href="post-ad.html" class="btn btn-primary">post to classifieds</a>
+        <button class="btn btn-secondary" data-open-modal="account-modal" aria-haspopup="dialog">my account</button>
+    </div>
+</header>
+
+<nav role="navigation" aria-label="Main navigation">
+    <form action="search.html" method="get" role="search" aria-label="Search classifieds">
+        <label for="nav-search" class="skip-link">Search classifieds</label>
+        <input type="search" id="nav-search" name="q" placeholder="search classifieds..." aria-label="Search classifieds">
+        <button type="submit" class="btn btn-primary">go</button>
+    </form>
+    <a href="../index.html">home</a>
+    <a href="#">community</a>
+    <a href="#">for sale</a>
+    <a href="#">housing</a>
+    <a href="#">jobs</a>
+    <a href="#">services</a>
+    <a href="help.html">help</a>
+</nav>
+
+<div class="page-wrap">
+    <main class="content" id="main-content" tabindex="-1">
+
+        <nav aria-label="Breadcrumb" id="breadcrumb">
+            <ol style="list-style:none;display:flex;gap:0.4rem;font-size:11px;color:var(--color-text-faint);flex-wrap:wrap;margin-bottom:0.5rem;">
+                <li><a href="../index.html">home</a></li>
+                <li aria-hidden="true">&#x203A;</li>
+                <li><a href="search.html">listings</a></li>
+                <li aria-hidden="true">&#x203A;</li>
+                <li id="breadcrumb-title" aria-current="page">Loading&#x2026;</li>
+            </ol>
+        </nav>
+
+        <section class="content-section" aria-labelledby="ad-heading" id="listing-section">
+            <div class="section-header" id="ad-heading-wrap">
+                <h2 id="ad-heading"><span class="skeleton skeleton-text wide" aria-hidden="true" style="height:18px;display:inline-block;"></span></h2>
+            </div>
+            <div id="skeleton-body">
+                <span class="skeleton skeleton-img"></span>
+                <div style="padding:1rem 0;">
+                    <span class="skeleton skeleton-text short" style="height:24px;width:15%;margin-bottom:0.8rem;"></span>
+                    <span class="skeleton skeleton-text med"></span>
+                    <span class="skeleton skeleton-text wide"></span>
+                    <span class="skeleton skeleton-text med"></span>
+                </div>
+            </div>
+            <article id="listing-body" style="display:none;" aria-label="Listing details"></article>
+        </section>
+
+        <section class="content-section" id="map-section" aria-labelledby="location-map-heading" style="display:none;">
+            <div class="section-header"><h2 id="location-map-heading">Item Location</h2></div>
+            <div class="map-wrapper">
+                <div id="map" role="application" aria-label="Map showing approximate pickup location"></div>
+            </div>
+            <p class="map-legend">
+                Approximate pickup area &mdash; exact address provided after contact.
+                Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>
+            </p>
+        </section>
+
+        <section class="content-section" id="messages-section" aria-labelledby="messages-heading" style="display:none;">
+            <div class="section-header"><h2 id="messages-heading">Private Messages</h2></div>
+            <div class="messages-thread" id="messages-thread" aria-live="polite" aria-label="Message thread">
+                <div class="seller-card message-buyer" role="article">
+                    <h5>You (Buyer)</h5>
+                    <p>Hi, is this still available?</p>
+                    <time style="font-size:10px;color:var(--color-text-faint);" datetime="2026-04-24T09:12">24 Apr, 09:12</time>
+                </div>
+                <div class="seller-card message-seller" role="article">
+                    <h5 id="seller-name-msg">Seller</h5>
+                    <p>Yes it is &mdash; feel free to get in touch for more details.</p>
+                    <time style="font-size:10px;color:var(--color-text-faint);" datetime="2026-04-24T10:05">24 Apr, 10:05</time>
+                </div>
+            </div>
+            <form class="message-compose" id="reply-form" aria-label="Reply to thread" novalidate>
+                <label for="reply-textarea" style="font-size:11px;font-weight:bold;text-transform:uppercase;color:var(--color-text-muted);display:block;margin-bottom:0.3rem;">Your reply</label>
+                <textarea id="reply-textarea" name="message" placeholder="Type your message here..." aria-label="Write your reply" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary">Reply</button>
+            </form>
+        </section>
+
+        <section class="content-section" id="similar-section" aria-labelledby="similar-heading" style="display:none;">
+            <div class="section-header"><h2 id="similar-heading">Similar Listings</h2></div>
+            <div class="ads-grid" id="similar-grid"></div>
+        </section>
+
+    </main>
+</div>
+
+<footer role="contentinfo">
+    <div class="footer-inner">
+        <div class="footer-brand-row">
+            <span class="site-name">craigslist</span>
+            <span class="tagline">london uk &middot; community-powered classifieds since 1995</span>
+        </div>
+        <div class="footer-links-row">
+            <div class="footer-col">
+                <h4>craigslist</h4>
+                <ul>
+                    <li><a href="../index.html">home</a></li>
+                    <li><a href="search.html">search listings</a></li>
+                    <li><a href="post-ad.html">post an ad</a></li>
+                    <li><a href="help.html">help &amp; FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 craigslist london. all rights reserved.</span>
+            <span><a href="#">privacy</a><span class="sep">&middot;</span><a href="#">terms</a><span class="sep">&middot;</span><a href="#">accessibility</a></span>
+        </div>
+    </div>
+</footer>
+
+<div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true">
+    <div class="modal">
+        <button class="modal-close" data-close-modal="contact-modal" aria-label="Close contact modal">&times;</button>
+        <h2 id="contact-modal-title">Contact Seller</h2>
+        <p style="font-size:11px;color:var(--color-text-muted);margin-bottom:0.8rem;" id="contact-modal-subtitle"></p>
+        <form id="contact-form" novalidate>
+            <div class="form-group">
+                <label for="contact-name">Your name <span aria-hidden="true">*</span></label>
+                <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required aria-required="true" autocomplete="name">
+                <span class="error-msg" role="alert">Name is required</span>
+            </div>
+            <div class="form-group">
+                <label for="contact-email">Your email <span aria-hidden="true">*</span></label>
+                <input type="email" id="contact-email" name="email" placeholder="jane@example.com" required aria-required="true" autocomplete="email">
+                <span class="error-msg" role="alert">A valid email is required</span>
+            </div>
+            <div class="form-group">
+                <label for="contact-message">Message <span aria-hidden="true">*</span></label>
+                <textarea id="contact-message" name="message" placeholder="Hi, is this still available?" required aria-required="true"></textarea>
+                <span class="error-msg" role="alert">Please write a message</span>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" data-close-modal="contact-modal">cancel</button>
+                <button type="submit" class="btn btn-primary">send message</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="account-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="account-modal-title" aria-hidden="true">
+    <div class="modal">
+        <button class="modal-close" data-close-modal="account-modal" aria-label="Close">&times;</button>
+        <h2 id="account-modal-title">My Account</h2>
+        <form novalidate>
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" placeholder="your@email.com" autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="current-password">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" data-close-modal="account-modal">cancel</button>
+                <button type="submit" class="btn btn-primary">sign in</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/TDI=" crossorigin=""></script>
+<script src="../js/main.js"></script>
+<script src="../js/open-ad.js"></script>
+</body>
+</html>
