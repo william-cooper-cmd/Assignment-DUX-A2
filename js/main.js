@@ -95,3 +95,10 @@ document.addEventListener('keydown', function (e) {
         if (open) closeModal(open.id);
     }
 });
+
+document.addEventListener('click', function (e) {
+    const opener = e.target.closest('[data-open-modal]');
+    if (opener) openModal(opener.dataset.openModal);
+    const closer = e.target.closest('[data-close-modal]');
+    if (closer) closeModal(closer.dataset.closeModal);
+});
