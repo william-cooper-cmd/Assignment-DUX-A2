@@ -67,3 +67,47 @@ The five wireframes from Assignment 1 were refined based on feedback.
 - **Added a dropdown "for sale" navigation menu** with keyboard support via `focus-within`, giving returning users faster access to subcategories addressing D1
 
 ---
+
+#### Page 2 - Search Results (`pages/search.html`)
+
+**Changes from wireframe**
+
+- **Added `role="search"` and `aria-label`** to the filter form so screen readers announce it as a search region rather than a generic form.
+- **Added a `role="status"` and `aria-live="polite"` attribute** to the results count paragraph. This means when a filter is applied and results update, screebn readers anbnounce the new count automatically without requiring the user to navigate back.
+- **Added a results map section** below the listings grid showing all result locations as Leaflet markers. Users can see where items are located geographically before clicking a listing, directly addressing L1.
+- **Added a "Sort by" dropdown** to the filter bar, addressing L3.
+- **All images given descriptive `alt` text** specific to each Ad.
+
+---
+
+#### Page 3 - Post an Ad (`pages/post-ad.html`)
+
+**Changes from wireframe:**
+
+- **Added client-side form validation** with accessible error messages. When a required field is left empty, the form group gains a `.has-error` class, adding a red border and displaying a text error message prefix with ⚠. Errors are communicated by text and icon - not colour alone, addressing D3 (WCAG 1.4.1).
+- **All required fields marked with `aria-required="true"`** and error messages wrapped in `role="alert"` so they are announced by screen readers imediately when shown
+- **Added a confirmation modal** that appears after a valid submission, replacing the simple toast-only feedback. This provides a=clear system status and addresses D2. 
+- **Added `inputmode="numeric"`** to price field for mobile users, triggering the numeric keyboard on touchscreen devices
+- **The "save draft" button now triggers a toast notification**, so users receive feedback that their data has been retained
+
+---
+
+#### Page 4 - Help / Avoiding Scams (`pages/help.html`)
+
+**Changes from wireframe:**
+
+- **Added an interactive FAQ accordian**. Each question is a `<button>` with `aria-expanded` toggling between `true`/`false`, and the answer panel uses `aria-controls` to link button to region.
+- **Added a "Help Topics" in-page navigation sidebar** linking to anchored headings within the page
+
+---
+
+#### Page 5 - Open Ad (`pages/open-ad.html`)
+
+**Changes from wireframe:**
+
+- **Added a breadcrumb navigation trail** (`<nav aria-label="Breadcrumb">`) above the listing so users always know where they are in the site hierarchy and can navigate back without the browser back button
+- **Replaced the generic messaging thread** with ARIA-labelled message articles including `<time>` elements with machine-readable `datetime` attributes
+- **The reply form is now a `<form>` with `id="reply-form"`** handled in `main.js`, dynamically appending the new message to the thread on submit — making the interaction functional rather than decorative.
+- **Added a "Save listing" button** with `aria-pressed` toggling — communicates state without colour alone and persists the saved/unsaved icon state.
+- **Added a "Share" button** using the Web Share API where available, falling back to clipboard copy with a toast confirmation.
+- **Added a "Similar Listings" section** at the bottom, addressing D1 (returning user navigation) and L2 (structured content).
