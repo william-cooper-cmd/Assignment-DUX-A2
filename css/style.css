@@ -941,9 +941,9 @@ footer {
         padding: 1rem;
     }
 
-    #map {
-        height: 220px;
-    }
+}
+#map {
+    height: 220px;
 }
 
 @media (max-width: 480px) {
