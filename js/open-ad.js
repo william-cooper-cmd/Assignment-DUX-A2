@@ -18,7 +18,7 @@
       <article class="ad-card">
         <img src="${esc(listing.image)}" alt="${esc(listing.imageAlt)}" loading="lazy">
         <div class="ad-card-body">
-          <div class="ad-card-title">${esc(listing.title)}</div>
+          <div class="ad-card-title"><a href="open-ad.html?id=${listing.id}" style="color:inherit;text-decoration:none;">${esc(listing.title)}</a></div>
           <div class="ad-card-price">${esc(listing.price)}</div>
           <div class="ad-card-location">&#128205; ${esc(listing.location)}</div>
           <a href="open-ad.html?id=${listing.id}" class="btn btn-primary">view listing</a>
