@@ -56,7 +56,9 @@
             return;
         }
 
-        const listing = CRAIGLIST_LISTINGS.find(function (l) { return l.id === id; });
+        const listing = CRAIGLIST_LISTINGS.find(function (l) {
+            return l.id === id;
+        });
         if (!listing) {
             showError('No listing found with ID ' + id + '.');
             return;
@@ -152,7 +154,7 @@
 
         document.getElementById('dyn-share-btn').addEventListener('click', function () {
             if (navigator.share) {
-                navigator.share({ title: listing.title, text: listing.price, url: window.location.href });
+                navigator.share({title: listing.title, text: listing.price, url: window.location.href});
             } else {
                 navigator.clipboard.writeText(window.location.href).then(function () {
                     showToast('Link copied to clipboard.', 'success');
@@ -177,31 +179,57 @@
                 .addTo(map)
                 .bindPopup('<strong>' + esc(listing.title) + '</strong><br>' + esc(listing.price) + '<br><small>&#128205; ' + esc(listing.location) + '</small>')
                 .openPopup();
-                setTimeout(function () { map.invalidateSize(); }, 100);
+            setTimeout(function () {
+                map.invalidateSize();
+            }, 100);
         }
 
         document.getElementById('messages-section').style.display = '';
 
-        const relatedIds = listing.related || [];
-        const relatedItems = relatedIds
-            .map(function (rid) { return CRAIGLIST_LISTINGS.find(function (l) { return l.id === rid; }); })
-            .filter(Boolean)
-            .slice(0, 3);
+        const replyForm = document.getElementById('reply-form');
+        const thread = document.getElementById('messages-thread');
+        if (replyForm && thread) {
+            // Load saved messages
+            const key = 'messages-' + listing.id;
+            const stored = JSON.parse(localStorage.getItem(key) || '[]');
+            stored.forEach(function (m) {
+                const d = new Date(m.time);
+                const timeStr = d.toLocaleDateString('en-GB', {day: 'numeric', month: 'short'}) +
+                    ', ' + d.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
+                const msg = document.createElement('div');
+                msg.className = 'seller-card message-buyer';
+                msg.setAttribute('role', 'article');
+                msg.innerHTML = '<h5>You (Buyer)</h5><p>' + esc(m.text) + '</p>' +
+                    '<time style="font-size:10px;color:var(--color-text-faint);" datetime="' + m.time + '">' + timeStr + '</time>';
+                thread.appendChild(msg);
+            });
 
-        if (relatedItems.length > 0) {
-            document.getElementById('similar-grid').innerHTML = relatedItems.map(buildCard).join('');
-            document.getElementById('similar-section').style.display = '';
+            replyForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const textarea = document.getElementById('reply-textarea');
+                const text = textarea.value.trim();
+                if (!text) return;
+
+                const now = new Date();
+                const timeStr = now.toLocaleDateString('en-GB', {day: 'numeric', month: 'short'}) +
+                    ', ' + now.toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
+                const isoStr = now.toISOString();
+
+                const msg = document.createElement('div');
+                msg.className = 'seller-card message-buyer';
+                msg.setAttribute('role', 'article');
+                msg.innerHTML = '<h5>You (Buyer)</h5><p>' + esc(text) + '</p>' +
+                    '<time style="font-size:10px;color:var(--color-text-faint);" datetime="' + isoStr + '">' + timeStr + '</time>';
+                thread.appendChild(msg);
+
+                const stored = JSON.parse(localStorage.getItem(key) || '[]');
+                stored.push({text: text, time: isoStr});
+                localStorage.setItem(key, JSON.stringify(stored));
+
+                textarea.value = '';
+                msg.scrollIntoView({behavior: 'smooth'});
+                showToast('Message sent!', 'success');
+            });
         }
     }
-
-    document.addEventListener('DOMContentLoaded', loadListing);
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            closeModal('contact-modal');
-            showToast('Message sent!', 'success');
-        });
-    }
-
 })();
