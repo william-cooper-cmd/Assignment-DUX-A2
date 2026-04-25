@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search — craiglist London</title>
+    <meta name="description" content="Search classified ads on craiglist London.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header role="banner">
+    <div class="header-left">
+        <a href="../index.html" aria-label="craiglist London homepage"><h1>craiglist</h1></a>
+        <h3><span class="weather-widget" aria-live="polite">London UK</span></h3>
+    </div>
+    <div class="header-right">
+        <button id="dark-mode-toggle" aria-label="Toggle dark mode">dark mode</button>
+        <a href="post-ad.html" class="btn btn-primary">post to classifieds</a>
+        <button class="btn btn-secondary" data-open-modal="account-modal" aria-haspopup="dialog">my account</button>
+    </div>
+</header>
+
+<nav role="navigation" aria-label="Main navigation">
+    <form action="search.html" method="get" role="search" aria-label="Search classifieds">
+        <label for="nav-search" class="skip-link">Search classifieds</label>
+        <input type="search" id="nav-search" name="q" placeholder="search classifieds..." aria-label="Search classifieds">
+        <button type="submit" class="btn btn-primary">go</button>
+    </form>
+    <a href="../index.html">home</a>
+    <a href="#">community</a>
+    <a href="#" aria-current="page">for sale</a>
+    <a href="#">housing</a>
+    <a href="#">jobs</a>
+    <a href="#">services</a>
+    <a href="help.html">help</a>
+</nav>
+
+<div class="page-wrap">
+
+    <aside aria-label="Sidebar">
+        <div class="sidebar-section">
+            <h4>Browse Categories</h4>
+            <ul>
+                <li><a href="search.html?category=electronics">Electronics</a></li>
+                <li><a href="search.html?category=furniture">Furniture</a></li>
+                <li><a href="search.html?category=housing">Housing</a></li>
+                <li><a href="search.html?category=vehicles">Vehicles</a></li>
+                <li><a href="search.html?category=services">Services</a></li>
+                <li><a href="search.html?category=music">Music</a></li>
+                <li><a href="search.html?category=bikes">Bikes</a></li>
+                <li><a href="search.html?category=fashion">Fashion</a></li>
+                <li><a href="search.html?category=pets">Pets</a></li>
+                <li><a href="search.html?category=jobs">Jobs</a></li>
+                <li><a href="search.html">All listings</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>Quick Searches</h4>
+            <ul>
+                <li><a href="search.html?q=piano">Pianos</a></li>
+                <li><a href="search.html?q=bike">Bikes</a></li>
+                <li><a href="search.html?q=flat">Flats to rent</a></li>
+                <li><a href="search.html?q=camera">Cameras</a></li>
+                <li><a href="search.html?q=dog">Dog services</a></li>
+                <li><a href="search.html?sort=price-asc">Cheapest first</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>Help &amp; Info</h4>
+            <ul>
+                <li><a href="help.html">Safety tips</a></li>
+                <li><a href="help.html">Avoid scams</a></li>
+                <li><a href="post-ad.html">Post an ad</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="content" id="main-content" tabindex="-1">
+
+        <div class="filter-bar" aria-label="Filter search results">
+            <h2>Filter Results</h2>
+            <form class="filter-form" id="filter-form" aria-label="Filter controls" novalidate>
+                <div class="form-group">
+                    <label for="filter-category">Category</label>
+                    <select id="filter-category" name="category">
+                        <option value="">All categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="housing">Housing</option>
+                        <option value="vehicles">Vehicles</option>
+                        <option value="services">Services</option>
+                        <option value="music">Music</option>
+                        <option value="bikes">Bikes</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="pets">Pets</option>
+                        <option value="jobs">Jobs</option>
+                        <option value="crafts">Crafts</option>
+                        <option value="classes">Classes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter-min">Min price (£)</label>
+                    <input type="text" id="filter-min" name="min_price" placeholder="0" style="width:75px;" inputmode="numeric" aria-label="Minimum price in pounds">
+                </div>
+                <div class="form-group">
+                    <label for="filter-max">Max price (£)</label>
+                    <input type="text" id="filter-max" name="max_price" placeholder="any" style="width:75px;" inputmode="numeric" aria-label="Maximum price in pounds">
+                </div>
+                <div class="form-group">
+                    <label for="filter-location">Location</label>
+                    <input type="text" id="filter-location" name="location" placeholder="e.g. Camden" style="width:130px;" aria-label="Filter by location">
+                </div>
+                <div class="form-group">
+                    <label for="filter-sort">Sort by</label>
+                    <select id="filter-sort" name="sort">
+                        <option value="recent">Most recent</option>
+                        <option value="price-asc">Price: low to high</option>
+                        <option value="price-desc">Price: high to low</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">apply filters</button>
+            </form>
+        </div>
+        
+        <section class="content-section" aria-labelledby="results-heading">
+            <div class="section-header">
+                <h2 id="results-heading">All listings in London</h2>
+            </div>
+            <p class="results-meta" id="results-meta" role="status" aria-live="polite">Loading&hellip;</p>
+            <div class="ads-grid" id="results-grid"></div>
+        </section>
+        
+        <section class="content-section" aria-labelledby="results-map-heading">
+            <div class="section-header">
+                <h2 id="results-map-heading">Results on Map</h2>
+            </div>
+            <div class="map-wrapper">
+                <div id="map" role="application" aria-label="Map showing locations of search results"></div>
+            </div>
+            <p class="map-legend">
+                Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>
+            </p>
+        </section>
+
+    </main>
+</div>
+
+<footer role="contentinfo">
+    <div class="footer-inner">
+        <div class="footer-brand-row">
+            <span class="site-name">craiglist</span>
+            <span class="tagline">london uk &middot; community-powered classifieds since 1995</span>
+        </div>
+        <div class="footer-links-row">
+            <div class="footer-col">
+                <h4>for sale</h4>
+                <ul>
+                    <li><a href="search.html?category=electronics">electronics</a></li>
+                    <li><a href="search.html?category=furniture">furniture</a></li>
+                    <li><a href="search.html?category=bikes">bikes</a></li>
+                    <li><a href="search.html?category=fashion">fashion</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>housing &amp; jobs</h4>
+                <ul>
+                    <li><a href="search.html?category=housing">housing</a></li>
+                    <li><a href="search.html?category=jobs">jobs</a></li>
+                    <li><a href="search.html?category=services">services</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>craiglist</h4>
+                <ul>
+                    <li><a href="../index.html">home</a></li>
+                    <li><a href="post-ad.html">post an ad</a></li>
+                    <li><a href="help.html">help &amp; FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 craiglist london. all rights reserved.</span>
+            <span>
+          <a href="#">privacy</a><span class="sep">&middot;</span>
+          <a href="#">terms</a><span class="sep">&middot;</span>
+          <a href="#">accessibility</a>
+        </span>
+        </div>
+    </div>
+</footer>
+
+<div id="account-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="account-modal-title" aria-hidden="true">
+    <div class="modal">
+        <button class="modal-close" data-close-modal="account-modal" aria-label="Close">&times;</button>
+        <h2 id="account-modal-title">My Account</h2>
+        <form novalidate>
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" placeholder="your@email.com" autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="current-password">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" data-close-modal="account-modal">cancel</button>
+                <button type="submit" class="btn btn-primary">sign in</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/TDI=" crossorigin=""></script>
+<script src="../js/main.js"></script>
+<script src="../js/search.js"></script>
+
+</body>
+</html>
