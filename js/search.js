@@ -199,7 +199,7 @@
     }
 
 
-    async function runSearch() {
+    function runSearch() {
         const urlParams  = new URLSearchParams(window.location.search);
         const params = {
             q:          urlParams.get('q')          || '',
@@ -217,19 +217,14 @@
             grid.innerHTML = '<p style="color:var(--color-text-muted);font-size:12px;grid-column:1/-1;">Loading listings&#x2026;</p>';
         }
 
-        let data;
-        try {
-            const res = await fetch('../data/posts.json');
-            if (!res.ok) throw new Error('fetch failed');
-            data = await res.json();
-        } catch (e) {
+        if (typeof CRAIGLIST_LISTINGS === 'undefined') {
             if (grid) {
-                grid.innerHTML = '<p style="color:#c0392b;font-size:12px;grid-column:1/-1;">&#9888; Could not load listings. Please try again later.</p>';
+                grid.innerHTML = '<p style="color:#c0392b;font-size:12px;grid-column:1/-1;">&#9888; Listings data not found. Make sure data.js is loaded.</p>';
             }
             return;
         }
 
-        const results = filterAndSort(data.listings, params);
+        const results = filterAndSort(CRAIGLIST_LISTINGS, params);
 
         updateHeading(params, results.length);
 

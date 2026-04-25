@@ -38,11 +38,11 @@
             '<a href="../index.html">Return to homepage</a> or ' +
             '<a href="search.html">browse all listings</a>.';
         section.appendChild(el);
-        document.title = 'Listing not found \u2014 craigslist London';
+        document.title = 'Listing not found \u2014 craiglist London';
     }
-    
 
-    async function loadListing() {
+
+    function loadListing() {
         const params = new URLSearchParams(window.location.search);
         const id = parseInt(params.get('id'), 10);
 
@@ -51,23 +51,18 @@
             return;
         }
 
-        let data;
-        try {
-            const res = await fetch('../data/posts.json');
-            if (!res.ok) throw new Error('Network error');
-            data = await res.json();
-        } catch (e) {
-            showError('Could not load listing data. Please try again later.');
+        if (typeof CRAIGLIST_LISTINGS === 'undefined') {
+            showError('Listings data not found. Make sure data.js is loaded.');
             return;
         }
 
-        const listing = data.listings.find(function (l) { return l.id === id; });
+        const listing = CRAIGLIST_LISTINGS.find(function (l) { return l.id === id; });
         if (!listing) {
             showError('No listing found with ID ' + id + '.');
             return;
         }
 
-        document.title = listing.title + ' \u2014 ' + listing.price + ' \u2014 craigslist London';
+        document.title = listing.title + ' \u2014 ' + listing.price + ' \u2014 craiglist London';
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', listing.description.slice(0, 155));
 
@@ -169,10 +164,12 @@
             showToast('Listing flagged for review. Thank you.', 'success');
         });
 
+        /* ---- Map ---- */
         const mapSection = document.getElementById('map-section');
         if (listing.lat && listing.lng && typeof L !== 'undefined') {
             mapSection.style.display = '';
             const map = L.map('map').setView([listing.lat, listing.lng], 14);
+            /* Attribution: Leaflet (BSD 2-Clause) + OpenStreetMap (ODbL) */
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
                 maxZoom: 18
@@ -187,7 +184,7 @@
 
         const relatedIds = listing.related || [];
         const relatedItems = relatedIds
-            .map(function (rid) { return data.listings.find(function (l) { return l.id === rid; }); })
+            .map(function (rid) { return CRAIGLIST_LISTINGS.find(function (l) { return l.id === rid; }); })
             .filter(Boolean)
             .slice(0, 3);
 
