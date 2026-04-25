@@ -34,3 +34,17 @@ Craigslist London is a community-powered classified advertisements platform for 
 - Strucutre project files into clearly named directories 
 
 ---
+
+| ID | Persona                    | Story                                                                                                                                                                                                                      |
+|----|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| S1 | Sarah (first time visitor) | As a first-time visitor, I want to search for second-hand furniture using a visible search button, so that I can find relevant listings without needing to know keyboard shortcuts.                                        |
+| S2 | Sarah                      | As a user with dyslexia, I want the website to use clear, simple language with generous spacing and readable fonts, so that I can browse listings without cognitive overload.                                              |
+| S3 | Sarah                      | As a mobile user with hand tremors, I want large, clearly labelled buttons and touch targets, so that I can navigate the site reliably on my smartphone.                                                                   |
+| D1 | Dexter (returning visitor) | As a returning visitor, I want the website to remember my preferred listing categories, so that I can get back to relevant content quickly without re-configuring my search each time.                                     |                               
+| D2 | Dexter                     | As a keyboard user, I want to navigate the entire site without a mouse, so that I can use the platform comfortably despite limited hand dexterity.                                                                         |
+| D3 | Dexter                     | As a user with deuteranopia, I want status indicators and important information to be conveyed through shape or text labels rather than colour alone, so that I do not miss critical information due to colour-coded cues. |
+| L1 | Lana (frequent visitor)    | As a frequent visitor, I want to filter my search results by category and location, so that I can quickly find relevant listing without being overwhelmed by irrelevant options.                                           | 
+| L2 | Lana                       | As a user with ADHD, I want the website to have clear visual hierarchy and concise descriptions, so that I can focus on the most important information without distractions.                                               |
+| L3 | Lana                       | As a user with visual sensitivity, I want the website to offer a dark mode or soft contrast option,, so that I can browse without experiencing discomfort.                                                                 |
+
+---
