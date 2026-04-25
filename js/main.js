@@ -102,3 +102,20 @@ document.addEventListener('click', function (e) {
     const closer = e.target.closest('[data-close-modal]');
     if (closer) closeModal(closer.dataset.closeModal);
 });
+
+function initMap(listings) {
+    const mapEl = document.getElementById('map');
+    if (!mapEl || typeof L === 'undefined') return;
+    const map = L.map('map').setView([51.505, -0.09], 11);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+        maxZoom: 18
+    }).addTo(map);
+    listings.forEach(function (l) {
+        if (!l.lat || !l.lng) return;
+        L.marker([l.lat, l.lng])
+            .addTo(map)
+            .bindPopup('<strong>' + l.title + '</strong><br>' + l.price + '<br><small>📍 ' + l.location + '</small>');
+    });
+    setTimeout(function () { map.invalidateSize(); }, 400);
+}
