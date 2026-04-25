@@ -111,3 +111,24 @@ The five wireframes from Assignment 1 were refined based on feedback.
 - **Added a "Save listing" button** with `aria-pressed` toggling — communicates state without colour alone and persists the saved/unsaved icon state.
 - **Added a "Share" button** using the Web Share API where available, falling back to clipboard copy with a toast confirmation.
 - **Added a "Similar Listings" section** at the bottom, addressing D1 (returning user navigation) and L2 (structured content).
+
+---
+
+## 2. Development
+
+### 2.1 Screenshots
+
+![index.html](./screenshots/index.png)
+![post-ad.html](./screenshots/post-ad.png)
+![open-ad.html](./screenshots/open-ad.png)
+![help.html](./screenshots/help.png)
+![search.html](./screenshots/search.png)
+
+---
+
+### 2.2 Reflection
+
+The development phase invloved building five HTML pages, a CSS file and four javascript files. The project structure separates pages into a `pages/` subdirectory, with assets in `css/` and `js/` directories at the root level.
+
+**Data architecture**
+
