@@ -13,10 +13,10 @@
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header role="banner">
+<header>
     <div class="header-left">
         <a href="../index.html" aria-label="craigslist London homepage"><h1>craigslist</h1></a>
-        <h3><span class="weather-widget" aria-live="polite">London UK</span></h3>
+        <h2><span class="weather-widget" aria-live="polite">London UK</span></h2>
     </div>
     <div class="header-right">
         <button id="dark-mode-toggle" aria-label="Toggle dark mode">dark mode</button>
@@ -25,7 +25,7 @@
     </div>
 </header>
 
-<nav role="navigation" aria-label="Main navigation">
+<nav aria-label="Main navigation">
     <form action="search.html" method="get" role="search" aria-label="Search classifieds">
         <label for="nav-search" class="skip-link">Search classifieds</label>
         <input type="search" id="nav-search" name="q" placeholder="search classifieds..." aria-label="Search classifieds">
@@ -84,7 +84,7 @@
 
     <main class="content" id="main-content" tabindex="-1">
 
-        <div class="filter-bar" aria-label="Filter search results">
+        <section class="filter-bar" aria-label="Filter search results">
             <h2>Filter Results</h2>
             <form class="filter-form" id="filter-form" aria-label="Filter controls" novalidate>
                 <div class="form-group">
@@ -127,7 +127,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">apply filters</button>
             </form>
-        </div>
+        </section>
         
         <section class="content-section" aria-labelledby="results-heading">
             <div class="section-header">
@@ -152,7 +152,7 @@
     </main>
 </div>
 
-<footer role="contentinfo">
+<footer>
     <div class="footer-inner">
         <div class="footer-brand-row">
             <span class="site-name">craigslist</span>
@@ -160,7 +160,7 @@
         </div>
         <div class="footer-links-row">
             <div class="footer-col">
-                <h4>for sale</h4>
+                <h3>for sale</h3>
                 <ul>
                     <li><a href="search.html?category=electronics">electronics</a></li>
                     <li><a href="search.html?category=furniture">furniture</a></li>
@@ -169,7 +169,7 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>housing &amp; jobs</h4>
+                <h3>housing &amp; jobs</h3>
                 <ul>
                     <li><a href="search.html?category=housing">housing</a></li>
                     <li><a href="search.html?category=jobs">jobs</a></li>
@@ -177,7 +177,7 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>craigslist</h4>
+                <h3>craigslist</h3>
                 <ul>
                     <li><a href="../index.html">home</a></li>
                     <li><a href="post-ad.html">post an ad</a></li>
