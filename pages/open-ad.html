@@ -24,10 +24,10 @@
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header role="banner">
+<header>
     <div class="header-left">
         <a href="../index.html" aria-label="craigslist London homepage"><h1>craigslist</h1></a>
-        <h3><span class="weather-widget" aria-live="polite">London UK</span></h3>
+        <h2><span class="weather-widget" aria-live="polite">London UK</span></h2>
     </div>
     <div class="header-right">
         <button id="dark-mode-toggle" aria-label="Toggle dark mode">dark mode</button>
@@ -36,7 +36,7 @@
     </div>
 </header>
 
-<nav role="navigation" aria-label="Main navigation">
+<nav aria-label="Main navigation">
     <form action="search.html" method="get" role="search" aria-label="Search classifieds">
         <label for="nav-search" class="skip-link">Search classifieds</label>
         <input type="search" id="nav-search" name="q" placeholder="search classifieds..." aria-label="Search classifieds">
@@ -95,7 +95,7 @@
             <div class="section-header"><h2 id="messages-heading">Private Messages</h2></div>
             <div class="messages-thread" id="messages-thread" aria-live="polite" aria-label="Message thread">
                 <div class="seller-card message-buyer" role="article">
-                    <h5>You (Buyer)</h5>
+                    <h3>You (Buyer)</h3>
                     <p>Hi, is this still available?</p>
                     <time style="font-size:10px;color:var(--color-text-faint);" datetime="2026-04-24T09:12">24 Apr, 09:12</time>
                 </div>
@@ -120,7 +120,7 @@
     </main>
 </div>
 
-<footer role="contentinfo">
+<footer>
     <div class="footer-inner">
         <div class="footer-brand-row">
             <span class="site-name">craigslist</span>
@@ -128,7 +128,7 @@
         </div>
         <div class="footer-links-row">
             <div class="footer-col">
-                <h4>craigslist</h4>
+                <h3>craigslist</h3>
                 <ul>
                     <li><a href="../index.html">home</a></li>
                     <li><a href="search.html">search listings</a></li>
@@ -152,7 +152,7 @@
         <form id="contact-form" novalidate>
             <div class="form-group">
                 <label for="contact-name">Your name <span aria-hidden="true">*</span></label>
-                <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required aria-required="true" autocomplete="name">
+                <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required autocomplete="name">
                 <span class="error-msg" role="alert">Name is required</span>
             </div>
             <div class="form-group">
@@ -162,7 +162,7 @@
             </div>
             <div class="form-group">
                 <label for="contact-message">Message <span aria-hidden="true">*</span></label>
-                <textarea id="contact-message" name="message" placeholder="Hi, is this still available?" required aria-required="true"></textarea>
+                <textarea id="contact-message" name="message" placeholder="Hi, is this still available?"></textarea>
                 <span class="error-msg" role="alert">Please write a message</span>
             </div>
             <div class="modal-actions">
