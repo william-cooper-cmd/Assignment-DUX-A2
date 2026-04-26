@@ -2,23 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Craigslist: London UK - Community Classifieds</title>
     <meta name="description" content="Craigslist London — buy, sell, rent, and find jobs and services in London. Community-powered classifieds since 1995.">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
 </head>
 <body>
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header>
+<header role="banner">
     <div class="header-left">
         <a href="index.html" aria-label="Craigslist London homepage">
             <h1>Craigslist</h1>
         </a>
-        <h2>
+        <h3>
             <span class="weather-widget" aria-live="polite">📍 London UK</span>
-        </h2>
+        </h3>
     </div>
     <div class="header-right">
         <button id="dark-mode-toggle" aria-label="Toggle dark mode">☾ dark mode</button>
@@ -26,7 +31,7 @@
         <button class="btn btn-secondary" data-open-modal="account-modal" aria-haspopup="dialog">my account</button>
     </div>
 </header>
-<nav aria-label="Main navigation">
+<nav role="navigation" aria-label="Main navigation">
     <form action="pages/search.html" method="get" role="search" aria-label="Search classifieds">
         <label for="nav-search" class="skip-link">Search classifieds</label>
         <input type="search" id="nav-search" name="q" placeholder="search classifieds..." aria-label="Search classifieds">
@@ -53,7 +58,7 @@
 <div class="page-wrap">
     <aside aria-label="Sidebar">
         <div class="sidebar-section">
-            <h3>Event Calendar</h3>
+            <h4>Event Calendar</h4>
             <ul>
                 <li><a href="#" target="_blank" rel="noopener noreferrer">Summer Music Festival — Jul 12</a></li>
                 <li><a href="#" target="_blank" rel="noopener noreferrer">Tech Meetup — Mar 5</a></li>
@@ -62,7 +67,7 @@
             </ul>
         </div>
         <div class="sidebar-section">
-            <h3>Local News</h3>
+            <h4>Local News</h4>
             <ul>
                 <li><a href="#" target="_blank" rel="noopener noreferrer">Tube strike update: Fri–Sat</a></li>
                 <li><a href="#" target="_blank" rel="noopener noreferrer">New cycle lanes: Southwark</a></li>
@@ -70,7 +75,7 @@
             </ul>
         </div>
         <div class="sidebar-section">
-            <h3>Help &amp; Info</h3>
+            <h4>Help &amp; Info</h4>
             <ul>
                 <li><a href="pages/help.html">Safety tips</a></li>
                 <li><a href="pages/help.html">Posting FAQ</a></li>
@@ -80,7 +85,7 @@
             </ul>
         </div>
         <div class="sidebar-section">
-            <h3>Best of Craigslist</h3>
+            <h4>Best of Craigslist</h4>
             <ul>
                 <li><a href="#">Best of this week</a></li>
                 <li><a href="#">Top sellers</a></li>
@@ -88,7 +93,7 @@
             </ul>
         </div>
         <div class="sidebar-section">
-            <h3>Find Us</h3>
+            <h4>Find Us</h4>
             <div class="social-mini">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="craigslist on Facebook">
                     <i class="fa fa-facebook" aria-hidden="true"></i> facebook
@@ -112,9 +117,9 @@
             </div>
             <div class="ads-grid" id="featured-ads-grid">
                 <article class="ad-card">
-                    <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=300&q=80" alt="Vintage Raleigh bicycle from the 1970s in silver">
+                    <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=400&h=300&q=80&fm=webp" alt="Vintage Raleigh bicycle from the 1970s in silver" width="400" height="300" loading="eager">
                     <div class="ad-card-body">
-                        <h3 class="ad-card-title"><a href="pages/open-ad.html?id=11" style="color:inherit;text-decoration:none;">Vintage Raleigh Bicycle</a></h3>
+                        <div class="ad-card-title"><a href="pages/open-ad.html?id=11" style="color:inherit;text-decoration:none;">Vintage Raleigh Bicycle</a></div>
                         <div class="ad-card-price">£120</div>
                         <div class="ad-card-location">📍 Shoreditch, London</div>
                         <div class="ad-card-desc">Classic 1970s racer, fully serviced, new tires. Lovely ride.</div>
@@ -123,9 +128,9 @@
                 </article>
 
                 <article class="ad-card">
-                    <img src="https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=300&q=80" alt="Set of four handmade stoneware pottery mugs in earthy tones">
+                    <img src="https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=400&h=300&q=80&fm=webp" alt="Set of four handmade stoneware pottery mugs in earthy tones" width="400" height="300" loading="lazy">
                     <div class="ad-card-body">
-                        <h3 class="ad-card-title"><a href="pages/open-ad.html?id=15" style="color:inherit;text-decoration:none;">Handmade Pottery — Set of 4</a></h3>
+                        <div class="ad-card-title">Handmade Pottery — Set of 4</div>
                         <div class="ad-card-price">£40</div>
                         <div class="ad-card-location">📍 Camden, London</div>
                         <div class="ad-card-desc">Hand-thrown stoneware mugs, each unique, food safe glazes.</div>
@@ -134,9 +139,9 @@
                 </article>
 
                 <article class="ad-card">
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=300&q=80" alt="Grey 3-seater IKEA Söderhamn sofa in good condition">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&h=300&q=80&fm=webp" alt="Grey 3-seater IKEA Söderhamn sofa in good condition" width="400" height="300" loading="lazy">
                     <div class="ad-card-body">
-                        <h3 class="ad-card-title"><a href="pages/open-ad.html?id=4" style="color:inherit;text-decoration:none;">3-Seater Sofa — Grey</a></h3>
+                        <div class="ad-card-title">3-Seater Sofa — Grey</div>
                         <div class="ad-card-price">£180</div>
                         <div class="ad-card-location">📍 Islington, London</div>
                         <div class="ad-card-desc">IKEA Söderhamn, 2 years old, no pets, great condition.</div>
@@ -145,9 +150,9 @@
                 </article>
 
                 <article class="ad-card">
-                    <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?auto=format&fit=crop&w=300&q=80" alt="Canon EOS 5D Mark III DSLR camera body in black">
+                    <img src="https://images.unsplash.com/photo-1509395062183-67c5ad6faff9?auto=format&fit=crop&w=400&h=300&q=80&fm=webp" alt="Canon EOS 5D Mark III DSLR camera body in black" width="400" height="300" loading="lazy">
                     <div class="ad-card-body">
-                        <h3 class="ad-card-title"><a href="pages/open-ad.html?id=12" style="color:inherit;text-decoration:none;">Canon EOS 5D Mk III</a></h3>
+                        <div class="ad-card-title">Canon EOS 5D Mk III</div>
                         <div class="ad-card-price">£650</div>
                         <div class="ad-card-location">📍 Hackney, London</div>
                         <div class="ad-card-desc">Body only, low shutter count ~18k, clean sensor. Box included.</div>
@@ -175,19 +180,19 @@
             </div>
             <div class="sellers-grid">
                 <div class="seller-card">
-                    <h3>Alice's Antiques</h3>
+                    <h5>Alice's Antiques</h5>
                     <p>⭐⭐⭐⭐⭐ — Top-rated seller in London<br>Specialising in Victorian furniture &amp; glassware.</p>
                 </div>
                 <div class="seller-card">
-                    <h3>Bob's Bikes</h3>
+                    <h5>Bob's Bikes</h5>
                     <p>⭐⭐⭐⭐⭐ — Trusted local seller<br>Refurbished cycles, parts &amp; accessories.</p>
                 </div>
                 <div class="seller-card">
-                    <h3>Zara's Vintage</h3>
+                    <h5>Zara's Vintage</h5>
                     <p>⭐⭐⭐⭐½ — Verified seller<br>Pre-loved fashion from the 60s–90s, Portobello Road.</p>
                 </div>
                 <div class="seller-card">
-                    <h3>TechFlip London</h3>
+                    <h5>TechFlip London</h5>
                     <p>⭐⭐⭐⭐⭐ — Fast responder<br>Refurbished electronics, 30-day returns guaranteed.</p>
                 </div>
             </div>
@@ -199,9 +204,9 @@
             <div class="ads-grid">
 
                 <article class="ad-card">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=300&q=80" alt="Bright top-floor flat interior with large windows in Brixton">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400&h=300&q=80&fm=webp" alt="Bright top-floor flat interior with large windows in Brixton" width="400" height="300" loading="lazy">
                     <div class="ad-card-body">
-                        <h3 class="ad-card-title"><a href="pages/open-ad.html?id=17" style="color:inherit;text-decoration:none;">1-Bed Flat for Rent</a></h3>
+                        <div class="ad-card-title">1-Bed Flat for Rent</div>
                         <div class="ad-card-price">£900/mo</div>
                         <div class="ad-card-location">📍 Brixton, London</div>
                         <div class="ad-card-desc">Top-floor flat, bright &amp; airy, 5-min walk to Brixton station.</div>
@@ -209,9 +214,9 @@
                     </div>
                 </article>
                 <article class="ad-card">
-                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=300&q=80" alt="Dog being walked on a lead in a park on a sunny day">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&h=300&q=80&fm=webp" alt="Dog being walked on a lead in a park on a sunny day" width="400" height="300" loading="lazy">
                     <div class="ad-card-body">
-                        <h3 class="ad-card-title"><a href="pages/open-ad.html?id=13" style="color:inherit;text-decoration:none;">Dog Walking Service</a></h3>
+                        <div class="ad-card-title">Dog Walking Service</div>
                         <div class="ad-card-price">£10/hr</div>
                         <div class="ad-card-location">📍 Hackney, London</div>
                         <div class="ad-card-desc">Reliable, insured, DBS-checked. Solo walks available. Any breed welcome.</div>
@@ -219,9 +224,9 @@
                     </div>
                 </article>
                 <article class="ad-card">
-                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=300&q=80" alt="Person in yoga pose at sunrise on a mat outdoors">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&h=300&q=80&fm=webp" alt="Person in yoga pose at sunrise on a mat outdoors" width="400" height="300" loading="lazy">
                     <div class="ad-card-body">
-                        <h3 class="ad-card-title"><a href="pages/open-ad.html?id=16" style="color:inherit;text-decoration:none;">Yoga Classes — All Levels</a></h3>
+                        <div class="ad-card-title">Yoga Classes — All Levels</div>
                         <div class="ad-card-price">£12/class</div>
                         <div class="ad-card-location">📍 Peckham, London</div>
                         <div class="ad-card-desc">Morning &amp; evening sessions, small groups max 8 people. First class free.</div>
@@ -230,9 +235,9 @@
                 </article>
 
                 <article class="ad-card">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=300&q=80" alt="Tradesperson carrying tools on a building site">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&h=300&q=80&fm=webp" alt="Tradesperson carrying tools on a building site" width="400" height="300" loading="lazy">
                     <div class="ad-card-body">
-                        <h3 class="ad-card-title"><a href="pages/open-ad.html?id=14" style="color:inherit;text-decoration:none;">Handyman — All Jobs</a></h3>
+                        <div class="ad-card-title">Handyman — All Jobs</div>
                         <div class="ad-card-price">£25/hr</div>
                         <div class="ad-card-location">📍 Lewisham, London</div>
                         <div class="ad-card-desc">Plumbing, electrics, painting, flat-pack assembly. Fully insured, refs available.</div>
@@ -244,7 +249,8 @@
 
     </main>
 </div>
-<footer>
+</body>
+<footer role="contentinfo">
     <div class="footer-inner">
         <div class="footer-brand-row">
             <span class="site-name">craigslist</span>
@@ -351,7 +357,6 @@
 </footer>
 
 
-
 <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true">
     <div class="modal">
         <button class="modal-close" data-close-modal="contact-modal" aria-label="Close contact modal">×</button>
@@ -359,17 +364,17 @@
         <form id="contact-form" novalidate>
             <div class="form-group">
                 <label for="contact-name">Your name <span aria-hidden="true">*</span></label>
-                <input type="text" id="contact-name" name="name" placeholder="Jane Smith">
+                <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required aria-required="true">
                 <span class="error-msg" role="alert">Name is required</span>
             </div>
             <div class="form-group">
                 <label for="contact-email">Your email <span aria-hidden="true">*</span></label>
-                <input type="email" id="contact-email" name="email" placeholder="jane@example.com">
+                <input type="email" id="contact-email" name="email" placeholder="jane@example.com" required aria-required="true">
                 <span class="error-msg" role="alert">A valid email is required</span>
             </div>
             <div class="form-group">
                 <label for="contact-message">Message <span aria-hidden="true">*</span></label>
-                <textarea id="contact-message" name="message" placeholder="Hi, is this still available?"></textarea>
+                <textarea id="contact-message" name="message" placeholder="Hi, is this still available?" required aria-required="true"></textarea>
                 <span class="error-msg" role="alert">Please write a message</span>
             </div>
             <div class="modal-actions">
@@ -405,11 +410,10 @@
     </div>
 </div>
 
-
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
 
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 <script>
     const listings = [
         { title: 'Vintage Raleigh Bicycle', price: '£120', location: 'Shoreditch', lat: 51.5243, lng: -0.0798 },
@@ -420,7 +424,14 @@
         { title: 'Dog Walking Service', price: '£10/hr', location: 'Hackney', lat: 51.5465, lng: -0.0570 },
         { title: 'Upright Piano for Sale', price: '£400', location: 'Camden', lat: 51.5400, lng: -0.1430 }
     ];
-    initMap(listings);
+    var mapEl = document.getElementById('map');
+    if (mapEl) {
+        new IntersectionObserver(function(entries, obs) {
+            if (entries[0].isIntersecting) {
+                initMap(listings);
+                obs.disconnect();
+            }
+        }, { rootMargin: '200px' }).observe(mapEl);
+    }
 </script>
-</body>
 </html>

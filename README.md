@@ -189,3 +189,9 @@ The site is deployed using Github Pages - https://william-cooper-cmd.github.io/A
 ---
 
 ### 3.6 Automated Testing
+
+HTML and CSS validation was performed using the W3C validators.
+
+- **HTML** — all five pages passed the [W3C Markup Validator](https://validator.w3.org/) with no errors.
+- **CSS** — `style.css` passed the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) with no errors.
+- 
