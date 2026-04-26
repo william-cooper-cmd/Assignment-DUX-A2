@@ -12,10 +12,10 @@
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header role="banner">
+<header>
     <div class="header-left">
         <a href="../index.html" aria-label="craigslist London homepage"><h1>craigslist</h1></a>
-        <h3><span class="weather-widget" aria-live="polite">📍 London UK</span></h3>
+        <h2><span class="weather-widget" aria-live="polite">📍 London UK</span></h2>
     </div>
     <div class="header-right">
         <button id="dark-mode-toggle" aria-label="Toggle dark mode">☾ dark mode</button>
@@ -24,7 +24,7 @@
     </div>
 </header>
 
-<nav role="navigation" aria-label="Main navigation">
+<nav aria-label="Main navigation">
     <form action="search.html" method="get" role="search" aria-label="Search classifieds">
         <label for="nav-search" class="skip-link">Search classifieds</label>
         <input type="search" id="nav-search" name="q" placeholder="search classifieds..." aria-label="Search classifieds">
@@ -103,7 +103,7 @@
 
                     <div class="form-group ad-type-field">
                         <label for="adType">Type of advert <span aria-hidden="true">*</span></label>
-                        <select id="adType" name="adType" required aria-required="true">
+                        <select id="adType" name="adType">
                             <option value="for-sale-owner">For Sale by Owner</option>
                             <option value="for-sale-dealer">For Sale by Dealer</option>
                             <option value="housing-offered">Housing Offered</option>
@@ -131,37 +131,37 @@
 
                     <div class="form-group first-name-field">
                         <label for="firstName">First name <span aria-hidden="true">*</span></label>
-                        <input type="text" id="firstName" name="firstName" placeholder="John" required aria-required="true" autocomplete="given-name">
+                        <input type="text" id="firstName" name="firstName" placeholder="John" autocomplete="given-name">
                         <span class="error-msg" role="alert">First name is required</span>
                     </div>
 
                     <div class="form-group last-name-field">
                         <label for="lastName">Surname <span aria-hidden="true">*</span></label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Doe" required aria-required="true" autocomplete="family-name">
+                        <input type="text" id="lastName" name="lastName" placeholder="Doe" autocomplete="family-name">
                         <span class="error-msg" role="alert">Surname is required</span>
                     </div>
 
                     <div class="form-group form-span-2">
                         <label for="adTitle">Ad title <span aria-hidden="true">*</span></label>
-                        <input type="text" id="adTitle" name="adTitle" placeholder="Bright 1-bed flat near Camden station" required aria-required="true">
+                        <input type="text" id="adTitle" name="adTitle" placeholder="Bright 1-bed flat near Camden station">
                         <span class="error-msg" role="alert">Please enter a title for your ad</span>
                     </div>
 
                     <div class="form-group">
                         <label for="price">Price (£) <span aria-hidden="true">*</span></label>
-                        <input type="text" id="price" name="price" placeholder="900" required aria-required="true" inputmode="numeric">
+                        <input type="text" id="price" name="price" placeholder="900" required inputmode="numeric">
                         <span class="error-msg" role="alert">Please enter a price</span>
                     </div>
 
                     <div class="form-group">
                         <label for="location">Location <span aria-hidden="true">*</span></label>
-                        <input type="text" id="location" name="location" placeholder="Hackney, London" required aria-required="true">
+                        <input type="text" id="location" name="location" placeholder="Hackney, London">
                         <span class="error-msg" role="alert">Please enter a location</span>
                     </div>
 
                     <div class="form-group form-span-2">
                         <label for="description">Description <span aria-hidden="true">*</span></label>
-                        <textarea id="description" name="description" placeholder="Add key details about your ad — condition, size, what's included, availability..." required aria-required="true"></textarea>
+                        <textarea id="description" name="description" placeholder="Add key details about your ad — condition, size, what's included, availability..."></textarea>
                         <span class="error-msg" role="alert">Please add a description</span>
                     </div>
 
@@ -191,7 +191,7 @@
     </main>
 </div>
 
-<footer role="contentinfo">
+<footer>
     <div class="footer-inner">
         <div class="footer-brand-row">
             <span class="site-name">craigslist</span>
@@ -199,7 +199,7 @@
         </div>
         <div class="footer-links-row">
             <div class="footer-col">
-                <h4>quick links</h4>
+                <h3>quick links</h3>
                 <ul>
                     <li><a href="../index.html">home</a></li>
                     <li><a href="search.html">search listings</a></li>
