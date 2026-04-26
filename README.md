@@ -177,3 +177,15 @@ The site is deployed using Github Pages - https://william-cooper-cmd.github.io/A
 | 13 | Skip link            | Focus page and press Tab once   | "Skip to main content" link appears and works             | Pass      |
 
 ---
+
+### 3.2 Bug Log
+
+| # | Bug | Cause | Fix |
+|---|-----|-------|-----|
+| 1 | "Listings data not found" on search and open-ad pages | `data.js` was loaded after page-specific scripts | Moved `data.js` to be the first script tag on affected pages |
+| 2 | "No listing ID provided" after submitting contact form | Contact form submit caused a page reload, clearing the URL `?id=` parameter | Added `e.preventDefault()` to the contact form submit handler |
+| 3 | Map rendered as white box on all pages | Leaflet CSS `integrity` hash mismatch blocked the stylesheet; container height also missing | Removed `integrity` attributes from Leaflet CDN tags; ensured `#map` height declared outside media queries |
+
+---
+
+### 3.6 Automated Testing
