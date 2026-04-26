@@ -156,3 +156,24 @@ The site is deployed using Github Pages - https://william-cooper-cmd.github.io/A
 
 ---
 
+## 3. Testing
+
+### 3.1 Manual Testing
+
+| #  | Feature              | Action                          | Expected Result                                           | Pass/Fail |
+|----|----------------------|---------------------------------|-----------------------------------------------------------|-----------|
+| 1  | Homepage loads       | Open `index.html`               | Page renders with featured listings, map, and sidebar     | pass      |
+| 2  | Dark mode toggle     | click "dark mode" button        | Page switches to dark theme and persits on reload         | Pass      |
+| 3  | Search from homepage | Type query and press "go"       | redirects to `search.html` with `?q=` parmater populated  | pass      |
+| 4  | Filter by category   | select a category and apply     | Ony listings matching category are shown                  | pass      |
+| 5  | Filter by price      | Enter min/max price and apply   | Listings outside price range are excluded                 | pass      |
+| 6  | Search map renders   | Open `seach.html`               | Leaflet map renders with markers for all results          | pass      |                                                                                                  
+| 7  | open-ad Page loads   | navigate to `open-ad.html?id=1` | Full listing reders with images, details, and seller info | pass      |
+| 8  | Open ad map renders  | View a listing with coordinates | Leaflet map renders with marker at correct location       | Pass      |
+| 9  | Contact seller modal | Click "contact seller"          | Modal opens with listing title pre-filled in subtitle     | Pass      |
+| 10 | Contact form submit  | Fill in and submit contact form | Modal closes and success toast appears                    | Pass      |
+| 11 | Message persistence  | Send message, reload page       | Previously sent messages reload from `localStorage`       | Pass      |
+| 12 | Keyboard navigation  | Tab through entire page         | All interactive elements reachable and focused visibly    | Pass      |
+| 13 | Skip link            | Focus page and press Tab once   | "Skip to main content" link appears and works             | Pass      |
+
+---
