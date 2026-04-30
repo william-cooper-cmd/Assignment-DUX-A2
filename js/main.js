@@ -111,11 +111,18 @@ function initMap(listings) {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
         maxZoom: 18
     }).addTo(map);
-    listings.forEach(function (l) {
-        if (!l.lat || !l.lng) return;
-        L.marker([l.lat, l.lng])
-            .addTo(map)
-            .bindPopup('<strong>' + l.title + '</strong><br>' + l.price + '<br><small>📍 ' + l.location + '</small>');
-    });
-    setTimeout(function () { map.invalidateSize(); }, 400);
+    if (listings && listings.length) {
+        listings.forEach(function (item) {
+            if (item.lat && item.lng) {
+                const link = item.id
+                    ? '<br><a href="pages/open-ad.html?id=' + item.id + '" style="color:#800080;font-weight:bold;">view listing &rarr;</a>'
+                    : '';
+                L.marker([item.lat, item.lng])
+                    .addTo(map)
+                    .bindPopup(
+                        '<strong>' + item.title + '</strong><br>' + item.price + '<br><small>' + item.location + '</small>' + link
+                    );
+            }
+        });
+    }
 }
